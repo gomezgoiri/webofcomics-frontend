@@ -1,7 +1,7 @@
-import Header from './Header'
-import Footer from './Footer'
+import SimplePage from './SimplePage'
+import PageWithMenu from './PageWithMenu'
 
 export {
-  Header,
-  Footer
+  SimplePage,
+  PageWithMenu
 }

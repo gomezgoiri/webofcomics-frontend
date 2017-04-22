@@ -3,6 +3,10 @@ body {
   background-color: #fff;
 }
 
-.Button {
-  border-radius: 25px;
+#root {
+  height: 100%;
+}
+
+.ant-layout {
+  height: 100%;
 }
