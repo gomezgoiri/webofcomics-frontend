@@ -1,6 +1,9 @@
 import React from 'react'
 import { Layout, Menu, Icon } from 'antd'
 
+import login from '../../modules/login'
+const LoginMenuItem = login.components.LoginMenuItem
+
 import './theme.css'
 
 const CustomSider = () => (
@@ -23,7 +26,9 @@ const CustomSider = () => (
           </span>
         }
       >
-        <Menu.Item key='sub1'>Log in</Menu.Item>
+        <Menu.Item key='sub1'>
+          <LoginMenuItem />
+        </Menu.Item>
       </Menu.SubMenu>
       <Menu.Divider />
       <Menu.SubMenu
@@ -43,6 +48,6 @@ const CustomSider = () => (
   </Layout.Sider>
 )
 
-CustomSider.__ANT_LAYOUT_SIDER = true;
+CustomSider.__ANT_LAYOUT_SIDER = true
 
 export default CustomSider
