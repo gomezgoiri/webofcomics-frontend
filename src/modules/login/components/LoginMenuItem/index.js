@@ -8,14 +8,19 @@ import { loadUsername } from '../../actions'
 import LoginMenuItem from './LoginMenuItem'
 
 class UsernameLoader extends React.Component {
+
+  needsToRetrieveUsername () {
+    return this.props.username === null && !this.props.isRetrievingUsername
+  }
+
   componentWillMount () {
-    if (this.props.isLoggedIn) {
+    if (this.props.isLoggedIn && this.needsToRetrieveUsername()) {
       this.props.loadUsername()
     }
   }
 
   componentDidUpdate () {
-    if (this.props.isLoggedIn) {
+    if (this.props.isLoggedIn && this.needsToRetrieveUsername()) {
       this.props.loadUsername()
     }
   }
@@ -35,6 +40,7 @@ UsernameLoader.propTypes = {
 
 const mapStateToProps = state => ({
   username: utils.getUsername(state),
+  isRetrievingUsername: utils.isRetrievingUsername(state),
   isLoggedIn: utils.isLoggedIn(state)
 })
 

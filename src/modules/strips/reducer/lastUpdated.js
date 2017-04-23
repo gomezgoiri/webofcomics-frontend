@@ -1,9 +1,9 @@
-import * as t from '../actionTypes'
+import { actionTypes as ht } from '../../../http'
 import * as c from '../constants'
 
 const lastUpdatedStrips = (state = ['a', 'b', 'c'], action) => {
   switch (action.type) {
-    case t.LOAD_STRIPS_SUCCESS:
+    case ht.success(ht.LOAD_STRIPS):
       return action.payload.data.map(strip => strip.name)
 
     default:

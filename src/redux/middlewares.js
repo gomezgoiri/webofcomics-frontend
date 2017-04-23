@@ -1,13 +1,9 @@
 import { applyMiddleware } from 'redux'
 
-import axios from 'axios'
+import thunk from 'redux-thunk'
 import axiosMiddleware from 'redux-axios-middleware'
+import { client } from '../http'
 
-const client = axios.create({
-  baseURL: process.env.REACT_APP_HTTP_API,
-  responseType: 'json'
-})
-
-const middlewares = applyMiddleware(axiosMiddleware(client))
+const middlewares = applyMiddleware(thunk, axiosMiddleware(client))
 
 export default middlewares

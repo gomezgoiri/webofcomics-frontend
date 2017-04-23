@@ -1,13 +1,6 @@
-import * as t from './actionTypes'
+import { actions } from '../../http'
 
-const loadStrips = () => ({
-  type: t.LOAD_STRIPS,
-  payload: {
-    request: {
-      url:'/strips'
-    }
-  }
-})
+const loadStrips = actions.loadStrips
 
 export {
   loadStrips

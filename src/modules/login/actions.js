@@ -1,32 +1,28 @@
+import { createAction } from 'redux-actions'
 import * as t from './actionTypes'
 
-const authenticate = ({ username, password }) => ({
-  type: t.AUTHENTICATE,
-  payload: {
-    request: {
-      method: 'post',
-      url:'/auth',
-      responseType: 'json',
-      data: {
-        username,
-        password
-      }
-    }
-  }
-})
+import * as cache from './cache'
+import { actions, configureAccessToken, removeAccessToken } from '../../http'
 
-// TODO Configure interceptor
+const unauthorize = createAction(t.UNAUTHORIZE)
 
-const loadUsername = () => ({
-  type: t.LOAD_USERNAME,
-  payload: {
-    request: {
-      url:'/user'
-    }
-  }
-})
+const authenticate = ({ username, password })  => dispatch => {
+  dispatch(actions.authenticate(username, password))
+    .then(successAction => {
+      const token = successAction.payload.data.access_token
+      cache.storeToken(token)
+      configureAccessToken(token)
+    })
+    .catch(() => {
+      cache.removeToken()
+      removeAccessToken()
+    })
+}
+
+const loadUsername = actions.loadUsername
 
 export {
+  unauthorize,
   authenticate,
   loadUsername
 }

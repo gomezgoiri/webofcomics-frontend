@@ -1,8 +1,8 @@
-import * as t from '../actionTypes'
+import { actionTypes as ht } from '../../../http'
 
 const byId = (state = {}, action) => {
   switch (action.type) {
-    case t.LOAD_STRIPS_SUCCESS:
+    case ht.success(ht.LOAD_STRIPS):
       return action.payload.data.reduce((ret, strip) => {
         ret[strip.url] = strip
         return ret
