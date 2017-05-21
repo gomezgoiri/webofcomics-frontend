@@ -2,50 +2,50 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
+import { createLoader } from '../../../../components/DataLoader'
+
 import * as utils from '../../reducer'
 import { loadUsername } from '../../actions'
 
-import LoginMenuItem from './LoginMenuItem'
+import LoggedMenu from './LoggedMenu'
+import { Menu } from 'antd'
 
-class UsernameLoader extends React.Component {
-
-  needsToRetrieveUsername () {
-    return this.props.username === null && !this.props.isRetrievingUsername
-  }
-
-  componentWillMount () {
-    if (this.props.isLoggedIn && this.needsToRetrieveUsername()) {
-      this.props.loadUsername()
+const UsernameLoader = ({ isLoggedIn, isRetrievingUsername, ...other }) => {
+  if (isLoggedIn) {
+    if (isRetrievingUsername) {
+      return <span>Loading user profile...</span>
+    } else {
+      return <LoggedMenu { ...other } />
     }
-  }
-
-  componentDidUpdate () {
-    if (this.props.isLoggedIn && this.needsToRetrieveUsername()) {
-      this.props.loadUsername()
-    }
-  }
-
-  render () {
-    const { ...props } = this.props
-    delete props.loadUsername
-    return <LoginMenuItem { ...props } />
+  } else {
+    return <Menu.Item { ...other }>Log in</Menu.Item>
   }
 }
 
 UsernameLoader.propTypes = {
-  username: PropTypes.string,
   isLoggedIn: PropTypes.bool,
-  loadUsername: PropTypes.func
+  isRetrievingUsername: PropTypes.bool,
+  username: PropTypes.string
 }
 
-const mapStateToProps = state => ({
-  username: utils.getUsername(state),
-  isRetrievingUsername: utils.isRetrievingUsername(state),
-  isLoggedIn: utils.isLoggedIn(state)
-})
+const mapStateToProps = state => {
+  const username = utils.getUsername(state)
+  const isRetrievingUsername = utils.isRetrievingUsername(state)
+  const isLoggedIn = utils.isLoggedIn(state)
+  const needsToRetrieveUsername = username === null && !isRetrievingUsername
+
+  return ({
+    username,
+    isRetrievingUsername,
+    isLoggedIn,
+    shouldLoad: isLoggedIn && needsToRetrieveUsername
+  })
+}
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ loadUsername }, dispatch)
+  bindActionCreators({
+    load: loadUsername
+  }, dispatch)
 )
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsernameLoader)
+export default connect(mapStateToProps, mapDispatchToProps)(createLoader(UsernameLoader))

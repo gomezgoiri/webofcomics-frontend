@@ -15,21 +15,8 @@ const CustomSider = () => (
     <Menu
       theme='dark'
       mode='inline'
-      defaultSelectedKeys={['6']}
-      onClick={({ key }) => console.log('Click!', key)}
     >
-      <Menu.SubMenu
-        title={
-          <span>
-            <Icon type='user' />
-            <span className='nav-text'>User</span>
-          </span>
-        }
-      >
-        <Menu.Item key='sub1'>
-          <LoginMenuItem />
-        </Menu.Item>
-      </Menu.SubMenu>
+      <LoginMenuItem key='user' />
       <Menu.Divider />
       <Menu.SubMenu
         key='sub2'
