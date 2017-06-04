@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 
-import login from '../modules/login'
+import auth from '../ducks/auth'
 import strips from '../modules/strips'
 
 const rootReducer = combineReducers({
-  [login.constants.NAME]: login.reducer,
+  [auth.constants.NAME]: auth.reducer,
   [strips.constants.NAME]: strips.reducer
 })
 

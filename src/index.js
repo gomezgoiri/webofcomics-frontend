@@ -4,15 +4,17 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import store from './redux'
 
-import Theme from './Theme'
-import LandingPage from './LandingPage'
-import './index.css'
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+
+import LandingPage from './components/LandingPage'
 
 ReactDOM.render(
   <Provider store={store}>
-    <Theme>
+    <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
       <LandingPage />
-    </Theme>
+    </MuiThemeProvider>
   </Provider>,
   document.getElementById('root')
 )
