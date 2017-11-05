@@ -17,7 +17,7 @@ const create = (url) => ({
       url: '/strips',
       responseType: 'json',
       data: {
-        url
+        pictureUrl: url
       }
     }
   }
