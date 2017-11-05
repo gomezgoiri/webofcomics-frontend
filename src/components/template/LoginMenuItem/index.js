@@ -20,7 +20,7 @@ const LoginMenuItem = ({
   if (isLoggedIn) {
     return <LoggedMenu className='loggedMenu' { ...other } />
   } else {
-    return <FlatButton onClick={onLoginClick} label='Login' />
+    return <FlatButton onClick={onLoginClick} label='Login' style={{ color: '#fff' }} />
   }
 }
 

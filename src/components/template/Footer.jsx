@@ -1,8 +1,9 @@
 import React from 'react'
 
 const CustomFooter = () => (
-  <div
+  <footer
     style={{
+      marginTop: '3em',
       display: 'flex',
       justifyContent: 'space-around',
       align: 'middle'
@@ -12,7 +13,7 @@ const CustomFooter = () => (
     <div><a href='link2'>Questions and answers</a></div>
     <div>Footer placeholder</div>
     <div><a href='http://gomezgoiri.net'>About the author</a></div>
-  </div>
+  </footer>
 )
 
 export default CustomFooter

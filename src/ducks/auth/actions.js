@@ -11,7 +11,7 @@ const completeLoginProcess = createAction(t.LOGIN_COMPLETED)
 const unauthorizeAction = createAction(t.UNAUTHORIZE)
 
 const authenticate = ({ username, password })  => dispatch => {
-  dispatch(actions.authenticate(username, password))
+  dispatch(actions.auth.authenticate(username, password))
     .then(successAction => {
       const token = successAction.payload.data.access_token
       cache.storeToken(token)
@@ -32,7 +32,7 @@ const unauthorize = () => dispatch => {
   dispatch(unauthorizeAction())
 }
 
-const loadUsername = actions.loadUsername
+const loadUsername = actions.auth.loadUsername
 
 export {
   showForm,

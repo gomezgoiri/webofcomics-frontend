@@ -1,5 +1,6 @@
 import React from 'react'
 import LastModifiedList from './LastModifiedList'
+import NewStrip from './NewStrip'
 
 const LandingPage = () => (
   <div>
@@ -9,6 +10,7 @@ const LandingPage = () => (
       section)
     </p>
     <LastModifiedList />
+    <NewStrip />
   </div>
 )
 

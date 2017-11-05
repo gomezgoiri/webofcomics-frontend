@@ -3,7 +3,7 @@ import * as c from '../constants'
 
 const lastUpdatedStrips = (state = ['a', 'b', 'c'], action) => {
   switch (action.type) {
-    case ht.success(ht.LOAD_STRIPS):
+    case ht.success(ht.STRIPS):
       return action.payload.data.map(strip => strip.name)
 
     default:

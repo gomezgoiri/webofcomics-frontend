@@ -1,7 +1,9 @@
 import { actions } from 'httpGateway'
 
-const loadStrips = actions.loadStrips
+const loadStrips = actions.strips.getAll
+const createStrip = actions.strips.create
 
 export {
-  loadStrips
+  loadStrips,
+  createStrip
 }
