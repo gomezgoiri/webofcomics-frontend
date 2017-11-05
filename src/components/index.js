@@ -1,9 +1,6 @@
 import React from 'react'
 
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import PrivateRoute from './PrivateRoute'
 
 import { Header, Footer } from './template'
@@ -14,12 +11,11 @@ const MainComponent = () => (
   <Router>
     <div>
       <Header />
-      <Route exact path="/" component={LandingPage}/>
-      <PrivateRoute path={PROFILE} component={Profile}/>
+      <Route exact path="/" component={LandingPage} />
+      <PrivateRoute path={PROFILE} component={Profile} />
       <Footer />
     </div>
   </Router>
 )
-
 
 export default MainComponent

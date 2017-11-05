@@ -8,9 +8,7 @@ let store
 if (process.env.NODE_ENV === 'production') {
   store = createStore(rootReducer, middlewares)
 } else {
-  store = createStore(rootReducer, composeWithDevTools(
-    middlewares
-  ))
+  store = createStore(rootReducer, composeWithDevTools(middlewares))
 }
 
 export default store

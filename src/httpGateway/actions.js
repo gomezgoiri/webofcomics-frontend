@@ -5,7 +5,7 @@ const authenticate = (username, password) => ({
   payload: {
     request: {
       method: 'post',
-      url:'/auth',
+      url: '/auth',
       responseType: 'json',
       data: {
         username,
@@ -19,7 +19,7 @@ const loadUsername = () => ({
   type: t.LOAD_USERNAME,
   payload: {
     request: {
-      url:'/user'
+      url: '/user'
     }
   }
 })
@@ -28,13 +28,9 @@ const loadStrips = () => ({
   type: t.LOAD_STRIPS,
   payload: {
     request: {
-      url:'/strips'
+      url: '/strips'
     }
   }
 })
 
-export {
-  authenticate,
-  loadUsername,
-  loadStrips
-}
+export { authenticate, loadUsername, loadStrips }

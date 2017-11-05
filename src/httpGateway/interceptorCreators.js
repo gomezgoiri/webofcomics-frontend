@@ -1,11 +1,14 @@
-
 const createLoggingInterceptor = log => {
   return error => {
     if (error.response) {
       log(
         'http',
-        error.response.data.error + ' (' + error.response.status + ') ' +
-        ' on ' + error.response.data.path
+        error.response.data.error +
+          ' (' +
+          error.response.status +
+          ') ' +
+          ' on ' +
+          error.response.data.path
       )
     } else {
       log('http', error.message)
@@ -31,7 +34,4 @@ const createUnauthorizationInterceptor = unauthorize => {
   }
 }
 
-export {
-  createLoggingInterceptor,
-  createUnauthorizationInterceptor
-}
+export { createLoggingInterceptor, createUnauthorizationInterceptor }

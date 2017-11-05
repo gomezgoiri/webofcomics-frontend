@@ -17,7 +17,4 @@ const configureAccessToken = token => updateToken(client, token)
 const removeAccessToken = () => updateToken(client)
 
 export default client
-export {
-  configureAccessToken,
-  removeAccessToken
-}
+export { configureAccessToken, removeAccessToken }

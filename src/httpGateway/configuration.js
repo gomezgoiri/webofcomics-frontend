@@ -1,21 +1,19 @@
 import axiosInstance from './client'
-import  {
+import {
   createLoggingInterceptor,
   createUnauthorizationInterceptor
 } from './interceptorCreators'
-
 
 const currentInterceptors = {
   log: null,
   unauthorization: null
 }
 
-const addInterceptor = errorInterceptor => (
+const addInterceptor = errorInterceptor =>
   axiosInstance.interceptors.response.use(
     response => response,
     errorInterceptor
   )
-)
 
 const removeInterceptor = interceptor => {
   axiosInstance.interceptors.response.eject(interceptor)
@@ -35,7 +33,4 @@ const setUnauthorizationAction = action => {
 setErrorLoggingAction((category, msg) => console.error(msg))
 setUnauthorizationAction(() => console.error('Unauthorized user'))
 
-export {
-  setErrorLoggingAction,
-  setUnauthorizationAction
-}
+export { setErrorLoggingAction, setUnauthorizationAction }
