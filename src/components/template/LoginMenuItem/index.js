@@ -17,7 +17,7 @@ const LoginMenuItem = ({
   if (isLoggedIn) {
     return <LoggedMenu />
   } else {
-    return <FlatButton onTouchTap={onLoginClick} label='Login' />
+    return <FlatButton onClick={onLoginClick} label='Login' />
   }
 }
 

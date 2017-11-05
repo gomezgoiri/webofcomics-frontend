@@ -19,7 +19,7 @@ const LoggedMenu = ({ username = '', logout, ...other }) => (
     anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
   >
     <MenuItem primaryText='Edit profile' />
-    <MenuItem primaryText='Sign out' onTouchTap={logout} />
+    <MenuItem primaryText='Sign out' onClick={logout} />
   </IconMenu>
 )
 

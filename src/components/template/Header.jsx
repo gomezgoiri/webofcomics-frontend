@@ -5,10 +5,6 @@ import AppBar from 'material-ui/AppBar'
 import LoginMenuItem from './LoginMenuItem'
 import LoginDialog from '../LoginDialog'
 
-// Otherwise AppBar injects onTouchTap in its title
-import injectTapEventPlugin from 'react-tap-event-plugin'
-injectTapEventPlugin()
-
 // Header image source: https://unsplash.com/collections/388096/books?photo=rNNmnC67h7g
 const Header = () => (
   <div>
