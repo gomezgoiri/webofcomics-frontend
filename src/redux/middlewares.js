@@ -2,7 +2,7 @@ import { applyMiddleware } from 'redux'
 
 import thunk from 'redux-thunk'
 import axiosMiddleware from 'redux-axios-middleware'
-import { client } from '../http'
+import { client } from 'httpGateway'
 
 const middlewares = applyMiddleware(thunk, axiosMiddleware(client))
 

@@ -1,4 +1,4 @@
-import { actions } from '../../http'
+import { actions } from 'httpGateway'
 
 const loadStrips = actions.loadStrips
 

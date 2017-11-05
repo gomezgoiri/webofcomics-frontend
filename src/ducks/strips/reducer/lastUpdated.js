@@ -1,4 +1,4 @@
-import { actionTypes as ht } from '../../../http'
+import { actionTypes as ht } from 'httpGateway'
 import * as c from '../constants'
 
 const lastUpdatedStrips = (state = ['a', 'b', 'c'], action) => {

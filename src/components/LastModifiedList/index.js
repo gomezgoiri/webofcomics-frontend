@@ -4,8 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import * as utils from '../../reducer'
-import { loadStrips } from '../../actions'
+import { actions, utils } from 'ducks/strips'
 
 import LastModifiedList from './LastModifiedList'
 
@@ -28,6 +27,10 @@ const mapStateToProps = state => ({
   lastUpdates: utils.getLastUpdates(state)
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({ loadStrips }, dispatch)
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({
+    loadStrips: actions.loadStrips
+  }, dispatch)
+)
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListLoader)

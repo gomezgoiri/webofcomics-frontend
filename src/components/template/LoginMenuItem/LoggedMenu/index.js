@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import auth from '../../../../ducks/auth'
+import { utils, actions } from 'ducks/auth'
 
-import { createLoader } from '../../../DataLoader'
+import { createLoader } from 'components/DataLoader'
 
 import CircularProgress from 'material-ui/CircularProgress'
 import LoggedMenu from './LoggedMenu'
@@ -29,9 +29,9 @@ UsernameLoader.propTypes = {
 }
 
 const mapStateToProps = state => {
-  const username = auth.utils.getUsername(state)
-  const isRetrievingUsername = auth.utils.isRetrievingUsername(state)
-  const isLoggedIn = auth.utils.isLoggedIn(state)
+  const username = utils.getUsername(state)
+  const isRetrievingUsername = utils.isRetrievingUsername(state)
+  const isLoggedIn = utils.isLoggedIn(state)
   const needsToRetrieveUsername = username === null && !isRetrievingUsername
 
   return ({
@@ -43,8 +43,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
-    load: auth.actions.loadUsername,
-    logout: auth.actions.unauthorize
+    load: actions.loadUsername,
+    logout: actions.unauthorize
   }, dispatch)
 )
 

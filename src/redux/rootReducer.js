@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import auth from '../ducks/auth'
-import strips from '../modules/strips'
+import * as auth from 'ducks/auth'
+import * as strips from 'ducks/strips'
 
 const rootReducer = combineReducers({
   [auth.constants.NAME]: auth.reducer,

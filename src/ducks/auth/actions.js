@@ -2,7 +2,7 @@ import { createAction } from 'redux-actions'
 import * as t from './actionTypes'
 
 import * as cache from './cache'
-import { actions, configureAccessToken, removeAccessToken } from '../../http'
+import { actions, configureAccessToken, removeAccessToken } from 'httpGateway'
 
 const showForm = createAction(t.SHOW_FORM)
 const hideForm = createAction(t.HIDE_FORM)

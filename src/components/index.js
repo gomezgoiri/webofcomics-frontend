@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
-import { PrivateRoute } from './login'
+import PrivateRoute from './PrivateRoute'
 
 import { Header, Footer } from './template'
 import Profile, { ROUTE as PROFILE } from './profile'

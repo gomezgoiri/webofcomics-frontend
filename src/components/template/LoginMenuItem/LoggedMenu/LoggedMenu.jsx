@@ -7,7 +7,7 @@ import MenuItem from 'material-ui/MenuItem'
 import IconButton from 'material-ui/IconButton'
 import Avatar from 'material-ui/Avatar'
 
-import { ROUTE as PROFILE } from '../../../profile'
+import { ROUTE as PROFILE } from 'components/profile'
 
 const LoggedMenu = ({ username = '', logout, history, staticContext, ...other }) => (
   <IconMenu

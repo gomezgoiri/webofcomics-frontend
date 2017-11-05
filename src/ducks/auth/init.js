@@ -1,4 +1,4 @@
-import { configureAccessToken, setUnauthorizationAction } from '../../http'
+import { configureAccessToken, setUnauthorizationAction } from 'httpGateway'
 
 import store from '../../redux'
 import { unauthorize } from './actions'

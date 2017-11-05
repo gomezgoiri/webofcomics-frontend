@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-
-import auth from '../../../ducks/auth'
+import { withRouter } from 'react-router-dom'
 
 import FlatButton from 'material-ui/FlatButton'
+
+import { utils, actions } from 'ducks/auth'
 import LoggedMenu from './LoggedMenu'
 
 import './menu.css'
@@ -28,13 +29,13 @@ LoginMenuItem.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  isLoggedIn: auth.utils.isLoggedIn(state)
+  isLoggedIn: utils.isLoggedIn(state)
 })
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
-    onLoginClick: auth.actions.showForm
+    onLoginClick: actions.showForm
   }, dispatch)
 )
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginMenuItem)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginMenuItem))

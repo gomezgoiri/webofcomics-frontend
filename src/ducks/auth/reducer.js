@@ -1,7 +1,7 @@
 import * as c from './constants'
 import * as t from './actionTypes'
 
-import { actionTypes as ht } from '../../http'
+import { actionTypes as ht } from 'httpGateway'
 import init from './init'
 import { getToken } from './cache'
 

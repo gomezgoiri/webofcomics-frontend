@@ -1,4 +1,4 @@
-import { actionTypes as ht } from '../../../http'
+import { actionTypes as ht } from 'httpGateway'
 
 const byId = (state = {}, action) => {
   switch (action.type) {
