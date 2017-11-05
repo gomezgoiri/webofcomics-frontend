@@ -9,13 +9,15 @@ import auth from '../../../ducks/auth'
 import FlatButton from 'material-ui/FlatButton'
 import LoggedMenu from './LoggedMenu'
 
+import './menu.css'
+
 const LoginMenuItem = ({
   isLoggedIn,
   onLoginClick,
   ...other
 }) => {
   if (isLoggedIn) {
-    return <LoggedMenu />
+    return <LoggedMenu className='loggedMenu' { ...other } />
   } else {
     return <FlatButton onClick={onLoginClick} label='Login' />
   }

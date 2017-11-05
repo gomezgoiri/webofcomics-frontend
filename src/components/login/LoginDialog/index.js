@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import auth from '../../ducks/auth'
+import auth from '../../../ducks/auth'
 
 import LoginDialog from './LoginDialog'
 

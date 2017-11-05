@@ -8,7 +8,7 @@ const showForm = createAction(t.SHOW_FORM)
 const hideForm = createAction(t.HIDE_FORM)
 
 const completeLoginProcess = createAction(t.LOGIN_COMPLETED)
-const unauthorize = createAction(t.UNAUTHORIZE)
+const unauthorizeAction = createAction(t.UNAUTHORIZE)
 
 const authenticate = ({ username, password })  => dispatch => {
   dispatch(actions.authenticate(username, password))
@@ -24,6 +24,12 @@ const authenticate = ({ username, password })  => dispatch => {
       cache.removeToken()
       removeAccessToken()
     })
+}
+
+const unauthorize = () => dispatch => {
+  cache.removeToken()
+  removeAccessToken()
+  dispatch(unauthorizeAction())
 }
 
 const loadUsername = actions.loadUsername

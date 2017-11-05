@@ -6,7 +6,7 @@ const client = axios.create({
 })
 
 const updateToken = (instance, token = null) => {
-  if (token) {
+  if (token !== null) {
     instance.defaults.headers.common['Authorization'] = 'JWT ' + token
   } else {
     delete instance.defaults.headers.common.Authorization

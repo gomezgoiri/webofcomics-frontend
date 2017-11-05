@@ -1,13 +1,16 @@
 import React from 'react'
 
+import { NavLink, withRouter } from 'react-router-dom'
+
 import IconMenu from 'material-ui/IconMenu'
 import MenuItem from 'material-ui/MenuItem'
 import IconButton from 'material-ui/IconButton'
 import Avatar from 'material-ui/Avatar'
 
-const LoggedMenu = ({ username = '', logout, ...other }) => (
+import { ROUTE as PROFILE } from '../../../profile'
+
+const LoggedMenu = ({ username = '', logout, history, staticContext, ...other }) => (
   <IconMenu
-    {...other}
     iconButtonElement={
       <IconButton>
         <Avatar size={24}>
@@ -18,9 +21,20 @@ const LoggedMenu = ({ username = '', logout, ...other }) => (
     targetOrigin={{horizontal: 'right', vertical: 'top'}}
     anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
   >
-    <MenuItem primaryText='Edit profile' />
+    <MenuItem
+      {...other}
+      primaryText={
+        <NavLink
+          to={PROFILE}
+          activeClassName='selected'
+        >
+          Edit profile
+        </NavLink>
+      }
+      onClick={() => history.push(PROFILE)}
+    />
     <MenuItem primaryText='Sign out' onClick={logout} />
   </IconMenu>
 )
 
-export default LoggedMenu
+export default withRouter(LoggedMenu)

@@ -1,0 +1,18 @@
+
+header a {
+  color: white;
+  text-decoration: none;
+}
+
+header a.selected {
+  font-weight: bold;
+}
+
+.loggedMenu a {
+  color: white;
+  text-decoration: none;
+}
+
+.loggedMenu a.selected {
+  font-weight: bold;
+}

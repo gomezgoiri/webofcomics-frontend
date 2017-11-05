@@ -8,12 +8,12 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 
-import LandingPage from './components/LandingPage'
+import Root from './components'
 
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-      <LandingPage />
+      <Root />
     </MuiThemeProvider>
   </Provider>,
   document.getElementById('root')
