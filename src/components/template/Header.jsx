@@ -1,29 +1,33 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom'
-import AppBar from 'material-ui/AppBar'
+import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar'
 
-import LoginMenuItem from './LoginMenuItem'
+import LoginMenu from './LoginMenu'
 import LoginDialog from './LoginDialog'
 
 // Header image source: https://unsplash.com/collections/388096/books?photo=rNNmnC67h7g
 const Header = () => (
   <header>
-    <AppBar
-      title={
-        <Link to='/'>The web of comics</Link>
-      }
-      showMenuIconButton={false}
+    <Toolbar
       style={{
         backgroundImage: 'url("comic_header.jpg")',
         backgroundSize: 'cover'
       }}
-      titleStyle={{
-        color: 'white',
-        fontFamily: "'Bubblegum Sans', cursive",
-      }}
-      iconElementRight={<LoginMenuItem />}
-    />
+    >
+      <ToolbarGroup firstChild>
+        <ToolbarTitle
+          text={<Link to='/'>The web of comics</Link>}
+          style={{
+            marginLeft: '1em',
+            fontFamily: "'Bubblegum Sans', cursive",
+          }}
+        />
+      </ToolbarGroup>
+      <ToolbarGroup>
+        <LoginMenu />
+      </ToolbarGroup>
+    </Toolbar>
     <LoginDialog />
   </header>
 )

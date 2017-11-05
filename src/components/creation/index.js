@@ -12,3 +12,5 @@ const mapDispatchToProps = dispatch => (
 )
 
 export default connect(undefined, mapDispatchToProps)(NewStrip)
+
+export const ROUTE = '/new-strip'

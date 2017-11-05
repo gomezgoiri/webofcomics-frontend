@@ -3,6 +3,14 @@ body {
   background-color: #fff;
 }
 
+header {
+  color: #fff;
+}
+
+header svg {
+  fill: #fff !important;
+}
+
 #root {
   height: 100%;
 }
