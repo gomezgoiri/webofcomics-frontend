@@ -11,7 +11,6 @@ const PrivateRoute = ({ isLogged = false, component: Component, ...other }) => (
       if (!isLogged) {
         return <Unauthorized />
       }
-console.log('VOR', Component, props)
       return <Component { ...props } />
     }}
   />
