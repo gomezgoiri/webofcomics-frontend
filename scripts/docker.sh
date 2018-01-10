@@ -25,5 +25,5 @@ then
     echo -e '\trun\tDeploy the webserver image'
   fi
 else
-  echo '(Docker is missing: no image will not be generated)'
+  echo '(Docker is missing: no image will be generated)'
 fi
