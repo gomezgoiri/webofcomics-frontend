@@ -11,3 +11,19 @@ You can do this by creating a file called _.env_ which contains something like:
 
     REACT_APP_HTTP_API='http://localhost:5000'
 
+## Run on development mode
+
+    yarn install # if necessary
+    yarn start
+
+
+## Production version
+
+To create the production-ready static files of the frontend run:
+
+    yarn build
+
+If [Docker](https://www.docker.com/) is detected, this command will also create an image with an static web server and the build files.
+To run a container of this image, simply run:
+
+    yarn deploy
